@@ -136,6 +136,8 @@ def del_employee(id):
 
     conn = db_conn
     cur = conn.cursor(pymysql.cursors.DictCursor)
+    cur.execute("DELETE FROM `leave` where emp_id = %s", (id))
+    cur.execute("DELETE FROM salary where emp_id = %s", (id))
     cur.execute("DELETE FROM attendance where emp_id = %s", (id))
     cur.execute("DELETE FROM employee where emp_id = %s", (id))
     conn.commit()
