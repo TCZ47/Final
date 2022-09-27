@@ -89,12 +89,7 @@ def AddEmp():
         cursor.close()
 
     print("all modification done...")
-    return redirect('AddEmpOutput.html?name=' + emp_name)
-
-
-@app.route("/addEmpOutput/<name>", methods=['GET'])
-def addEmpOutput(name):
-    return render_template('AddEmpOutput.html', name = name)
+    return render_template('AddEmpOutput.html', name = emp_name)
 
 @app.route("/getEmp", methods=['GET'])
 def getEmp():
